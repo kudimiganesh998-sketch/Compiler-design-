@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main()
+{
+    char op[3][3] = {"*", "+", "="};
+    char arg1[3][5] = {"c", "b", "t1"};
+    char arg2[3][5] = {"d", "t1", "-"};
+    char result[3][5] = {"t1", "t2", "a"};
+
+    int i;
+
+    printf("Quadruple Representation\n");
+    printf("--------------------------------\n");
+    printf("Operator\tArg1\tArg2\tResult\n");
+    printf("--------------------------------\n");
+
+    for(i = 0; i < 3; i++)
+    {
+        printf("%s\t\t%s\t%s\t%s\n",
+               op[i], arg1[i], arg2[i], result[i]);
+    }
+
+    return 0;
+}
