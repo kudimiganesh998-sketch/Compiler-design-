@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    char str[100];
+    int i;
+
+    printf("Enter expression: ");
+    scanf("%s", str);
+
+    for (i = 0; str[i] != '\0'; i++) {
+        if (str[i] == '+')
+            printf("+ : Addition\n");
+        else if (str[i] == '-')
+            printf("- : Subtraction\n");
+        else if (str[i] == '*')
+            printf("* : Multiplication\n");
+        else if (str[i] == '/')
+            printf("/ : Division\n");
+        else
+            printf("%c : Not an arithmetic operator\n", str[i]);
+    }
+
+    return 0;
+}
