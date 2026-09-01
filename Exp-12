@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <string.h>
+
+char input[100];
+int pos = 0;
+
+void E();
+void T();
+void F();
+
+void E() {
+    T();
+
+    if (input[pos] == '+') {
+        pos++;
+        E();
+    }
+}
+
+void T() {
+    F();
+
+    if (input[pos] == '*') {
+        pos++;
+        T();
+    }
+}
+
+void F() {
+    if (input[pos] == 'i' &&
+        input[pos + 1] == 'd') {
+        pos += 2;
+    }
+    else if (input[pos] == '(') {
+        pos++;
+        E();
+
+        if (input[pos] == ')')
+            pos++;
+        else {
+            printf("Invalid\n");
+            return;
+        }
+    }
+    else {
+        printf("Invalid\n");
+    }
+}
+
+int main() {
+    printf("Enter expression using id: ");
+    scanf("%s", input);
+
+    E();
+
+    if (input[pos] == '\0')
+        printf("String Accepted\n");
+    else
+        printf("String Rejected\n");
+
+    return 0;
+}
